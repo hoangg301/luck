@@ -32,14 +32,6 @@ function App() {
     'CODE13',
     'CODE14',
     'CODE15',
-    'CODE16',
-    'CODE17',
-    'CODE18',
-    'CODE19',
-    'CODE20',
-    'ADMIN',
-    'ADMIN1',
-    'ADMIN2'
   ];
 
   const rewards = [
