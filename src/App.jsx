@@ -72,38 +72,38 @@ function App() {
   const [error, setError] = useState('');
   const [page, setPage] = useState('start');
   
-  const [currUser, setCurrUser] = useState(() => {
-    const savedUser = localStorage.getItem('currUser');
+  const [currUser_v2, setCurrUser_v2] = useState(() => {
+    const savedUser = localStorage.getItem('currUser_v2');
     return savedUser ? JSON.parse(savedUser) : null;
   });
 
-  const [codeRewards, setCodeRewards] = useState(() => {
-    const saved = localStorage.getItem('codeRewards');
+  const [codeRewards_v2, setCodeRewards_v2] = useState(() => {
+    const saved = localStorage.getItem('codeRewards_v2');
     return saved ? JSON.parse(saved) : {};
   });
 
   const [rewardResult, setRewardResult] = useState(null);
 
 
-  const [shuffledRewards] = useState(() => {
-    const saved = localStorage.getItem('shuffledRewards');
+  const [shuffledReward_v2] = useState(() => {
+    const saved = localStorage.getItem('shuffledReward_v2');
     return saved ? JSON.parse(saved) : [...rewards].sort(() => Math.random() - 0.5);
   });
 
   useEffect(() => {
-    localStorage.setItem('shuffledRewards', JSON.stringify(shuffledRewards));
-  }, [shuffledRewards]);
+    localStorage.setItem('shuffledReward_v2', JSON.stringify(shuffledReward_v2));
+  }, [shuffledReward_v2]);
 
   useEffect(() => {
-    localStorage.setItem('codeRewards', JSON.stringify(codeRewards));
-  }, [codeRewards]);
+    localStorage.setItem('codeRewards_v2', JSON.stringify(codeRewards_v2));
+  }, [codeRewards_v2]);
 
   useEffect(() => {
-    if (currUser && codeRewards[currUser.code]) {
-      setRewardResult(codeRewards[currUser.code]);
+    if (currUser_v2 && codeRewards_v2[currUser_v2.code]) {
+      setRewardResult(codeRewards_v2[currUser_v2.code]);
       setPage('choosing');
     }
-  }, [currUser, codeRewards]);
+  }, [currUser_v2, codeRewards_v2]);
   
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -126,11 +126,11 @@ function App() {
 
     const userData = { name, code: normalizedCode };
 
-    setCurrUser(userData);
-    localStorage.setItem('currUser', JSON.stringify(userData));
+    setCurrUser_v2(userData);
+    localStorage.setItem('currUser_v2', JSON.stringify(userData));
     
-    if (codeRewards[normalizedCode]) {
-      setRewardResult(codeRewards[normalizedCode]);
+    if (codeRewards_v2[normalizedCode]) {
+      setRewardResult(codeRewards_v2[normalizedCode]);
     } else {
       setRewardResult(null);
     }
@@ -141,21 +141,21 @@ function App() {
   };
 
   const handlePickLixi = (index) => {
-    if (!currUser || rewardResult) return;
+    if (!currUser_v2 || rewardResult) return;
 
-    if (codeRewards[currUser.code]) {
-      setRewardResult(codeRewards[currUser.code]);
+    if (codeRewards_v2[currUser_v2.code]) {
+      setRewardResult(codeRewards_v2[currUser_v2.code]);
       return;
     }
 
-    const reward = shuffledRewards[index];
+    const reward = shuffledReward_v2[index];
 
     const updatedRewards = {
-      ...codeRewards,
-      [currUser.code]: reward
+      ...codeRewards_v2,
+      [currUser_v2.code]: reward
     };
 
-    setCodeRewards(updatedRewards);
+    setCodeRewards_v2(updatedRewards);
     setRewardResult(reward);
   };
 
@@ -209,7 +209,7 @@ function App() {
             <div className="dot-square"></div>
           </div>
           <div className="choosing-page-content">
-            <h2>Chào mừng, {currUser?.name}!</h2>
+            <h2>Chào mừng, {currUser_v2?.name}!</h2>
             <img src={frameImg} alt='frame' className='frame-img frame1' />
             <p className='p1'>9 lì xì?</p>
             <img src={frameImg} alt='frame' className='frame-img frame2' />
