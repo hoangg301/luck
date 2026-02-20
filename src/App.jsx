@@ -8,6 +8,11 @@ import caythongImg from './assets/caythong.webp';
 import laughingVid from './assets/laughing.mp4';
 import clappingVid from './assets/clapping.mp4';
 import deadlyVid from './assets/deadly.mp4';
+import whiteBall from './assets/white-ball.webp';
+import blueBall from './assets/blue-ball.webp';
+import yellowBall from './assets/yellow-ball.webp';
+import greenBall from './assets/green-ball.webp';
+
 
 function App() {
   
@@ -38,26 +43,26 @@ function App() {
   ];
 
   const rewards = [
-    10,
     20,
     30,
-    40,
+    35,
     50,
     60,
-    75,
-    100,
+    70,
+    85,
+    105,
     150
   ];
 
   const rewardMedia = {
-    10: { type: 'video', src: laughingVid },
     20: { type: 'video', src: laughingVid },
     30: { type: 'video', src: laughingVid },
-    40: { type: 'video', src: clappingVid },
+    35: { type: 'video', src: laughingVid },
     50: { type: 'video', src: clappingVid },
     60: { type: 'video', src: clappingVid },
-    75: { type: 'video', src: deadlyVid },
-    100: { type: 'video', src: deadlyVid },
+    70: { type: 'video', src: clappingVid },
+    85: { type: 'video', src: deadlyVid },
+    105: { type: 'video', src: deadlyVid },
     150: { type: 'video', src: deadlyVid }
   };
 
@@ -205,26 +210,26 @@ function App() {
           </div>
           <div className="choosing-page-content">
             <h2>Chào mừng, {currUser?.name}!</h2>
-            <img src={frameImg} alt='frame' loading='lazy' className='frame-img frame1' />
+            <img src={frameImg} alt='frame' className='frame-img frame1' />
             <p className='p1'>9 lì xì?</p>
-            <img src={frameImg} alt='frame' loading='lazy' className='frame-img frame2' />
+            <img src={frameImg} alt='frame' className='frame-img frame2' />
             <p className='p2'>9 mệnh giá?</p>
-            <img src={frameImg} alt='frame' loading='lazy' className='frame-img frame3' />
+            <img src={frameImg} alt='frame' className='frame-img frame3' />
             <p className='p3'>100% random?</p>
-            <img src={frameImg} alt='frame' loading='lazy' className='frame-img frame4' />
+            <img src={frameImg} alt='frame' className='frame-img frame4' />
             <p className='p4'>Nhân phẩm?</p>
             <div className="caythong-container">
               <img src={caythongImg} alt="cây thông" loading="lazy" className="caythong" />
               <div className="caythong-content">
-                <div className="white-ball">150K</div>
-                <div className="blue-ball blue1">105K</div>
-                <div className="yellow-ball yellow1">85</div>
-                <div className="green-ball green1">70K</div>
-                <div className="blue-ball blue2">60K</div>
-                <div className="yellow-ball yellow2">50K</div>
-                <div className="green-ball green2">20K</div>
-                <div className="blue-ball blue3">30K</div>
-                <div className="yellow-ball yellow3">35K</div>
+                <div className="white-ball" style={{ backgroundImage: `url(${whiteBall})` }}>150K</div>
+                <div className="blue-ball blue1" style={{ backgroundImage: `url(${blueBall})` }}>105K</div>
+                <div className="yellow-ball yellow1" style={{ backgroundImage: `url(${yellowBall})` }}>85K</div>
+                <div className="green-ball green1" style={{ backgroundImage: `url(${greenBall})` }}>70K</div>
+                <div className="blue-ball blue2" style={{ backgroundImage: `url(${blueBall})` }}>60K</div>
+                <div className="yellow-ball yellow2" style={{ backgroundImage: `url(${yellowBall})` }}>50K</div>
+                <div className="green-ball green2" style={{ backgroundImage: `url(${greenBall})` }}>20K</div>
+                <div className="blue-ball blue3" style={{ backgroundImage: `url(${blueBall})` }}>30K</div>
+                <div className="yellow-ball yellow3" style={{ backgroundImage: `url(${yellowBall})` }}>35K</div>
               </div>
             </div>
           </div>

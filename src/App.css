@@ -336,7 +336,6 @@
 }
 
 .white-ball {
-  background-image: url(src/assets/white-ball.webp);
   background-size: cover;
   width: 122px;
   height: 110px;
