@@ -241,7 +241,11 @@ function App() {
                 src={lixiImg}
                 alt="lì xì"
                 className="lixi"
-                onClick={() => handlePickLixi(index)}
+                onClick={() => {
+                    navigator.vibrate?.(30);
+                    handlePickLixi(index);
+                  }
+                }
               />
             ))}
           </div>
